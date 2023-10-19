@@ -9,6 +9,10 @@ const morgan = require('morgan')
 //CONNECTDB
 const connectDB = require('./db/connect')
 
+
+//Router
+const authRouter = require('./routes/authRoutes')
+
 //Middleware
 const notFoundMiddleWare = require('./middleware/not-found')
 const errorHandlerMiddleWare = require('./middleware/error-handler')
@@ -20,6 +24,8 @@ app.use(express.json())
 app.get('/', (req, res)=>{
     res.send('proform-api')
 })
+
+app.use('/api/v1/auth', authRouter)
 
 app.use(notFoundMiddleWare)
 app.use(errorHandlerMiddleWare)
