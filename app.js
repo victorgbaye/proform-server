@@ -12,6 +12,7 @@ const connectDB = require('./db/connect')
 
 //Router
 const authRouter = require('./routes/authRoutes')
+const formRouter = require('./routes/formRoutes')
 
 //Middleware
 const notFoundMiddleWare = require('./middleware/not-found')
@@ -26,6 +27,7 @@ app.get('/', (req, res)=>{
 })
 
 app.use('/api/v1/auth', authRouter)
+app.use('/api/vi/forms', formRouter)
 
 app.use(notFoundMiddleWare)
 app.use(errorHandlerMiddleWare)
