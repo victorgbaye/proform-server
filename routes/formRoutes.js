@@ -9,7 +9,7 @@ router.route('/').post(createForm).get(getAllForms)
 
 router.route('/:id')
 .get(getSingleForm)
-.patch(updateForm)
+.put(updateForm)
 .delete(deleteForm)
 
 module.exports = router
