@@ -11,8 +11,8 @@ const register = async(req,res) => {
       throw new customError.BadRequestError('Email already exists');
     }
 
-    const user = await User.create({ name, email, password });
-    const tokenUser = {firstnamename:user.firstname, lastname: user.lastname, email:user.email, userId: user._id}
+    const user = await User.create({ firstname, lastname, email, password });
+    const tokenUser = {firstname:user.firstname, lastname: user.lastname, email:user.email, userId: user._id}
     attachCookiesToResponse({res, user:tokenUser})
     res.status(StatusCodes.CREATED).json({ user:tokenUser });
 };
@@ -38,7 +38,11 @@ const login = async(req, res) => {
 }
 
 const logout = async(req,res) => {
-    res.send('login user')
+    res.cookie('token', 'logout', {
+        httpOnly: true,
+        expires: new Date(Date.now() + 1000),
+      });
+      res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
 module.exports = {register, login, logout}
