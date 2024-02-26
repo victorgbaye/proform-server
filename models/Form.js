@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const responseSchema = new mongoose.Schema({
   responderId: { type: mongoose.Schema.Types.ObjectId, required: true },
   value: { type: String, required: true },
-  timestamp: { type: Date, default: Date.now }
+  timestamp: { type: Date, default: Date.now },
+  bookmark:{require:false, type: Boolean, default:false }
 });
 
 const questionSchema = new mongoose.Schema({
