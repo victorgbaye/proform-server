@@ -11,7 +11,7 @@ const questionSchema = new mongoose.Schema({
     // _id: mongoose.Schema.Types.ObjectId,
     questionText: {
       type: String,
-      // required: true,
+      required: true,
       // maxLength: 
     },
     questionType: {
