@@ -19,11 +19,11 @@ const questionSchema = new mongoose.Schema({
       enum: ['multi-select', 'single choice select', 'small text area', 'large text area', 'contact info', 'calendar', 'link', 'Rating', 'file upload'],
       // required: true,
     },
-    required: {
+    isRequired: {
       type: Boolean,
       default: false
   },
-    options: [{ type: String }],
+    options: [{ type: String, required: false }],
     responses: [responseSchema]
   });
 

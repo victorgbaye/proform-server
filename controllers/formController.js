@@ -25,7 +25,7 @@ const getSingleForm = async (req, res) => {
   
   const updateForm = async (req, res) => {
     try {
-      const { formId } = req.params;
+      const { id:formId } = req.params;
       const updatedForm = await Form.findByIdAndUpdate(formId, req.body, { new: true });
       if (!updatedForm) {
         return res.status(StatusCodes.NOT_FOUND).json({ error: 'Form not found' });
@@ -38,7 +38,7 @@ const getSingleForm = async (req, res) => {
   
   const deleteForm = async (req, res) => {
     try {
-      const { formId } = req.params;
+      const { id: formId } = req.params;
       const deletedForm = await Form.findByIdAndDelete(formId);
       if (!deletedForm) {
         return res.status(StatusCodes.NOT_FOUND).json({ error: 'Form not found' });

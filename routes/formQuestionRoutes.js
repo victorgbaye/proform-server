@@ -7,7 +7,7 @@ const { getAllQuestions, getSingleQuestion, addQuestion, updateQuestion, deleteQ
 router.route('/').post(addQuestion).get(getAllQuestions);
 router.route('/:questionId')
 .get(getSingleQuestion)
-.put(updateQuestion)
+.patch(updateQuestion)
 .delete(deleteQuestion)
 
 module.exports = router;
