@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const { getAllQuestions, getSingleQuestion, addQuestion, updateQuestion, deleteQuestion } = require('../controllers/FormQuestionController');
+const { getAllQuestions, getSingleQuestion, addQuestion, updateQuestion, deleteQuestion } = require('../controllers/formQuestionController');
 
 router.route('/').post(addQuestion).get(getAllQuestions);
 router.route('/:questionId')
